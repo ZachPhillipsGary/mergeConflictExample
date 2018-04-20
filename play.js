@@ -7,6 +7,16 @@ gulp.task('webserver', function() {
   });
 });
 // task
+function doStuff(cfg) {
+  return gulp.src(cfg.src)
+    .pipe(uglify())
+    .pipe(gulp.dest(cfg.dest));
+}
+
+gulp.task('dry', function() {
+  doStuff(config.desktop);
+  doStuff(config.mobile);
+});
 gulp.task('minify-html', function () {
     gulp.src('./Html/*.html') // path to your files
     .pipe(minifyHtml())
@@ -14,3 +24,4 @@ gulp.task('minify-html', function () {
 })
 gulp.task('default', ['webserver']);
 
+//test 12445
