@@ -6,6 +6,11 @@ gulp.task('webserver', function() {
     livereload: true
   });
 });
-
+// task
+gulp.task('minify-html', function () {
+    gulp.src('./Html/*.html') // path to your files
+    .pipe(minifyHtml())
+    .pipe(gulp.dest('path/to/destination'));
+})
 gulp.task('default', ['webserver']);
 
